@@ -1,0 +1,16 @@
+$ docker --version
+bash: line 1: docker: command not found
+$ go version
+go version go1.23.2 linux/amd64
+$ psql --version
+bash: line 1: psql: command not found
+$ GOTOOLCHAIN=auto go version (from services/api)
+go: downloading go1.26.0 (linux/amd64)
+go: download go1.26.0: golang.org/toolchain@v0.0.1-go1.26.0.linux-amd64: Get "https://proxy.golang.org/golang.org/toolchain/@v/v0.0.1-go1.26.0.linux-amd64.zip": dial tcp: lookup proxy.golang.org on 168.63.129.16:53: read udp 172.26.39.226:33939->168.63.129.16:53: read: connection refused
+$ make up
+docker compose up -d --build --wait --wait-timeout 600
+make: docker: No such file or directory
+make: *** [Makefile:11: up] Error 127
+$ git diff --ignore-space-at-eol --stat
+$ git diff --ignore-space-at-eol --quiet; exit code
+0

@@ -1,0 +1,30 @@
+
+oasis-builders-nov-2026.xlsx: data_rows=600, unique_invoices=8
+  invoice_numbers=OBS-2611-001,OBS-2611-002,OBS-2611-003,OBS-2611-004,OBS-2611-005,OBS-2611-006,OBS-2611-007,OBS-2611-008
+  lines_per_invoice={75: 8}
+  unique_buyer_participants=5
+  modelled_directory_calls=600 (one per data row; code validates each row individually)
+  modelled_lookup_time_at_200ms_each=120 seconds (600 x 0.2s; sequential code path)
+
+al-noor-fuel-nov-2026.xlsx: data_rows=13, unique_invoices=6
+  invoice_numbers=ANF-2611-0041,ANF-2611-0042,ANF-2611-0043,ANF-2611-0044,ANF-2611-0045,ANF-2611-0046
+  invoice,lines,net,vat,gross_code_formula,expected_net_plus_vat,difference
+  ANF-2611-0041,1,13749.75,687.49,14437.24,14437.24,+0.00
+  ANF-2611-0042,3,14307.08,715.35,15022.42,15022.43,-0.01
+  ANF-2611-0043,2,18684.00,934.20,19618.20,19618.20,+0.00
+  ANF-2611-0044,4,11254.84,562.75,11817.57,11817.59,-0.02
+  ANF-2611-0045,1,11283.30,564.17,11847.47,11847.47,+0.00
+  ANF-2611-0046,2,5343.80,267.20,5610.99,5611.00,-0.01
+  expected_BR_CO_15_mismatches=3 (0042, 0044, 0046); this is a source-formula reproduction, not an ASP runtime test
+
+sahara-medical-batch-1116.xlsx: data_rows=60, unique_invoices=40
+  invoice_numbers=SMS-1116-001,SMS-1116-002,SMS-1116-003,SMS-1116-004,SMS-1116-005,SMS-1116-006,SMS-1116-007,SMS-1116-008,SMS-1116-009,SMS-1116-010,SMS-1116-011,SMS-1116-012,SMS-1116-013,SMS-1116-014,SMS-1116-015,SMS-1116-016,SMS-1116-017,SMS-1116-018,SMS-1116-019,SMS-1116-020,SMS-1116-021,SMS-1116-022,SMS-1116-023,SMS-1116-024,SMS-1116-025,SMS-1116-026,SMS-1116-027,SMS-1116-028,SMS-1116-029,SMS-1116-030,SMS-1116-031,SMS-1116-032,SMS-1116-033,SMS-1116-034,SMS-1116-035,SMS-1116-036,SMS-1116-037,SMS-1116-038,SMS-1116-039,SMS-1116-040
+  unique_buyer_participants=2
+  ASP_limit_from_source=burst 8 then refill 2 documents/second per sender
+  if 40 requests arrive in one burst, initial capacity is 8; 429 handling in API is not implemented
+
+ghaf-cafe-nov-2026.xlsx: data_rows=8, unique_invoices=4
+  invoice_numbers=GTC-118,GTC-119,GTC-120,GTC-121
+  Invoice issue date*: cell_types={'str': 8}; values={'13/11/2026': 4, '14/11/2026': 3, '15/11/2026': 1}
+  Payment due date*: cell_types={'str': 8}; values={'13/12/2026': 4, '14/12/2026': 3, '15/12/2026': 1}
+  4 invoices; both mandatory date columns are text in slash format

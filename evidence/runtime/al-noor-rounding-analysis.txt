@@ -1,0 +1,27 @@
+﻿Al Noor BR-CO-15 calculation verification
+
+Invoice 0042:
+Expected gross: 15022.43
+API gross:      15022.42
+Difference:     0.01
+
+Invoice 0044:
+Expected gross: 11817.59
+API gross:      11817.57
+Difference:     0.02
+
+Invoice 0046:
+Expected gross: 5611.00
+API gross:      5610.99
+Difference:     0.01
+
+Root cause:
+computeTotals() calculates TaxInclusiveAmount independently
+from Quantity * UnitPrice * (1 + VAT rate), while VAT is
+calculated from rounded line net amounts.
+
+ASP BR-CO-15 requires:
+TaxInclusiveAmount = TaxExclusiveAmount + TaxAmount.
+
+Conclusion:
+Confirmed calculation inconsistency in the API.

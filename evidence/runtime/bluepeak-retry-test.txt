@@ -1,0 +1,3 @@
+﻿POST /v1/invoices/027c976e-b651-48fb-889f-0f07e98cf218/retry
+HTTP/1.1 409 Conflict
+{"error":"only invoices in status Validated or Failed can be retried (current status: Submitted)"}
