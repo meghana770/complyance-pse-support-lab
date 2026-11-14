@@ -2,7 +2,7 @@
 
 - **Name:** Meghana Bagari
 - **Date submitted:** 14/11/2026
-- **Repository link:** [Paste your own public GitHub repository URL after pushing]
+- - **Repository link:** https://github.com/meghana770/complyance-pse-support-lab
 - **Total time spent (real time):** Approximately 4–6 hours.
 > Replies below are drafts written on the **exercise clock** (Monday 16 November 2026, Asia/Dubai, UTC+4). They were not sent. No real customer or company was contacted. Actual investigation activity is kept separate from the exercise clock.
 
